@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_res_groups_kanban" model="ir.ui.view">
+        <field name="name">res.groups.kanban</field>
+        <field name="model">res.groups</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="full_name"/>
+                <templates>
+                    <t t-name="kanban-box">
+
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <strong>
+                                        <field name="full_name"/>
+                                    </strong>
+                                </ul>
+                            </div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                   href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a t-if="widget.editable" role="menuitem" type="edit"
+                                       class="dropdown-item fa fa-pencil-square-o">
+                                        <span class="ml-3">Edit</span>
+                                    </a>
+                                    <a t-if="widget.editable" role="menuitem" type="delete"
+                                       class="dropdown-item fa fa-times">
+                                        <span class="ml-3">Delete</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="base.action_res_groups" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="qzhub_roles.view_res_groups_kanban"/>
+    </record>
+
+</odoo>
