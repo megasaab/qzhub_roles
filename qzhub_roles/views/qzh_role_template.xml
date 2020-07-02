@@ -6,6 +6,7 @@
             <kanban class="o_kanban_mobile">
                 <field name="full_name"/>
                 <field name="users"/>
+                <field name="comment"/>
                 <templates>
                     <t t-name="kanban-box">
 
@@ -16,6 +17,8 @@
                                         <field name="full_name"/>
                                     </strong>
                                     <li><field name="users"/> </li>
+                                    <li><span>Notes:</span></li>
+                                    <li><strong><field name="comment"/></strong> </li>
                                 </ul>
                             </div>
                             <div class="o_dropdown_kanban dropdown">
